@@ -1,6 +1,6 @@
 const apiKey = "a2de8100073f49a382d99d5dc12e3062";
 const allRecipes = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
-// const recipe = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`;
+let checkrecipe = document.getElementsByClassName("card");
 
 const card_container = document.getElementById("card-container");
 const searchBar = document.getElementById("searchBar");
@@ -110,14 +110,14 @@ async function searchRecipeFunction() {
   addCards(Sdata);
 }
 
-let checkrecipe = document.getElementsByClassName("card");
 // checkrecipe is object that is being converted into array
-const array = Array.from(checkrecipe);
+var array = Array.from(checkrecipe);
 array.forEach(function (elem) {
   elem.addEventListener("click", () => {
     showrecipe(elem.id);
   });
 });
+
 
 async function showrecipe(id) {
   let card = document.getElementById("recipe-card-body");
